@@ -5,6 +5,7 @@
     <thead>
         <tr>
             <th>Id</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
@@ -21,6 +22,10 @@
                  
             <tr>
             <td>{{$user->id}}</td>
+            <!-- image retrive simple way -->
+            <!-- <td><img height="20" src="/images/{{$user->photo ? $user->photo->file : 'Not Photo For User'}}" alt=""></td> -->
+            <!-- image retrive accessor way -->
+            <td><img height="20" src="{{$user->photo ? $user->photo->file : 'Not Photo For User'}}" alt=""></td>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->role->name}}</td>
