@@ -1,7 +1,7 @@
 @extends('layouts.admin') @section('content')
 <h3>Create User</h3>
 @include('includes.form_error') {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
-{{csrf_field()}} {{csrf_field()}}
+{{csrf_field()}}
 <div class="form-group">
     {!!Form::label('name','Name')!!} {!!Form::text('name',null,['class'=>'form-control'])!!}
 </div>
