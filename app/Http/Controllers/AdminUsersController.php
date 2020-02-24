@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserEditRequest;
+use Illuminate\Support\Facades\Session;
 
 use App\User;
 use App\Role;
@@ -116,7 +117,7 @@ class AdminUsersController extends Controller
         // }
         // else
         // {
-        //     $input=$request->all();
+             $input=$request->all();
         //     $input['password'] = bcrypt($request->password);
         // }
 
@@ -148,6 +149,13 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+        $user=User::findOrFail($id);
+        unlink(public_path() . $user->photo->file);
+        $user->delete();
+
+        Session::flash('delete_user','The user has been delete successfully');
+
+        return redirect('/admin/users');
     }
 
 }
