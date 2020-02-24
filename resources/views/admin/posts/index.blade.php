@@ -1,0 +1,46 @@
+@extends('layouts.admin') 
+@section('content')
+
+<!-- @if(Session::has('delete_user'))
+<p class="bg-danger">{{session('delete_user')}}</p>
+@endif  -->
+
+ <h3>Posts</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Owner</th>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Create</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if($posts) 
+        
+            @foreach($posts as $post)
+                 
+            <tr>
+            <td>{{$post->id}}</td>
+            <!-- image retrive accessor way -->
+            <td><img height="50" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
+            <td>{{$post->user->name}}</td>
+            <td>{{$post->category ? $post->category->name : 'Uncategorize'}}</td>
+            <!-- <td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->name}}</a></td> -->
+            <td>{{$post->title}}</td>
+            <td>{{$post->body}}</td>
+            <td>{{$post->created_at->diffForHumans()}}</td>
+            <td>{{$post->updated_at->diffForHumans()}}</td>
+            </tr>
+            @endforeach 
+            
+        @endif
+    </tbody>
+</table>
+
+@endsection

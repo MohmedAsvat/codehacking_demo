@@ -1,1 +1,4 @@
-<h1>Page Not Found</h1>
+@extends('layouts.admin') 
+@section('content')
+<h1 class="text-center">Page Not Found</h1>
+@endsection
