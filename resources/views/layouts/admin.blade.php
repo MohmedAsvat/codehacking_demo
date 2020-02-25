@@ -54,7 +54,7 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -151,15 +151,15 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/categories">All Categories</a>
+                                <a href="{{route('admin.categories.index')}}">All Categories</a>
                             </li>
 
-                            <li>
-                                <a href="/categories/create">Create Category</a>
-                            </li>
+                            <!-- <li>
+                                <a href="{{route('admin.categories.create')}}">Create Categories</a>
+                            </li> -->
 
                         </ul>
                         <!-- /.nav-second-level -->
