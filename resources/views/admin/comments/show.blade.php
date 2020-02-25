@@ -2,7 +2,7 @@
 <h3>Comments</h3>
 
 
-@if(count($comments) > 0)
+@if($comment)
 <table class="table">
     <thead>
         <tr>
@@ -16,8 +16,6 @@
     </thead>
 
     <tbody>
-
-        @foreach($comments as $comment)
 
         <tr>
             <td>{{$comment->id}}</td>
@@ -68,7 +66,6 @@
 
             </td>
         </tr>
-        @endforeach
     </tbody>
 </table>
 
