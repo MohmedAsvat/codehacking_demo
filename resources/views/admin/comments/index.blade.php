@@ -30,6 +30,9 @@
                 <a href="{{route('home.post',$comment->post->id)}}">View Post</a>
             </td>
             <td>
+                <a href="{{route('admin.comment.replies.show',$comment->id)}}">View Reply</a>
+            </td>
+            <td>
 
                 @if($comment->is_active == 1) 
                 

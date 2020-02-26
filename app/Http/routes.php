@@ -39,5 +39,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('/admin/comment/replies', 'CommentRepliesController');
 
-    // Route::get('admin/media/upload',['as'=>'admin.media.upload','uses'=>'AdminMediaController@store']);
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('comment/reply', 'CommentRepliesController@createReply');
 });
